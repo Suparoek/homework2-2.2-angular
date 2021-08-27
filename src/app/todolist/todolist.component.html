@@ -1,0 +1,18 @@
+<div class="col-12">
+    <h2>My Tasks today</h2>
+    <ul *ngFor="let item of list">
+        <li>{{item}}</li>
+    </ul>
+    <div class="card-body">
+        <div class="col-6">
+            <!-- Email input -->
+            <div class="form-outline">
+                <label class="form-label" for="form1Example1">เพิ่มข้อมูล</label>
+                <input type="text" [(ngModel)]="title" class="form-control" />
+                <br>
+                <button (click)="addClick(title)" class="btn btn-primary btn-block">ตกลง</button>
+            </div>
+            <!-- Submit button -->
+        </div>
+    </div>
+</div>

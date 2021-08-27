@@ -1,0 +1,13 @@
+.col-6 {
+    justify-items: center;
+    margin-left: 20px;
+}
+
+ul {
+    border: 2px solid tomato;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
