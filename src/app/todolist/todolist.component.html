@@ -1,7 +1,8 @@
 <div class="col-12">
     <h2>My Tasks today</h2>
     <ul *ngFor="let item of list; index as i">
-        <li>{{item}} <button (click)="remove(i)" class="btn btn-danger">ลบข้อมูล</button></li>
+        <li>{{item}}
+            <!--<button (click)="remove(i)" class="btn btn-danger">ลบข้อมูล</button></li>-->
     </ul>
     <div class="card-body">
         <div class="col-6">

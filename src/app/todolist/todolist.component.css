@@ -4,7 +4,8 @@
 }
 
 ul {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    border: 2px solid tomato;
     text-align: center;
 }
 
