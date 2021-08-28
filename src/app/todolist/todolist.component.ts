@@ -15,4 +15,10 @@ export class TodolistComponent {
 
     this.title ='';
   }
+  remove(i:number){
+     if(i !== -1) {
+       this.list.splice(i,1);
+       alert("ลบข้อมูลของท่านเรียบร้อย");
+     }
+  }
 }
