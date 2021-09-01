@@ -1,19 +1,25 @@
-<div class="col-12">
-    <h2>My Tasks today</h2>
-    <ul *ngFor="let item of list; index as i">
-        <li>{{item}}
-            <!--<button (click)="remove(i)" class="btn btn-danger">ลบข้อมูล</button></li>-->
-    </ul>
-    <div class="card-body">
-        <div class="col-6">
-            <!-- Email input -->
-            <div class="form-outline">
-                <label class="form-label" for="form1Example1">เพิ่มข้อมูล</label>
-                <input type="text" [(ngModel)]="title" class="form-control" />
-                <br>
-                <button (click)="addClick(title)" class="btn btn-primary btn-block">ตกลง</button>
-            </div>
-            <!-- Submit button -->
+<div class="bar-out">
+    <div class="bar-task">
+        <h2 style="text-align: center;">My Tasks today</h2>
+        <app-task *ngFor=" let list of tasks" [task]="list" (OnDelete)="removelist($event)"></app-task>
+    </div>
+    <!--   <ul *ngFor="let p of tasks; index as i">
+        <li>ชื่อ :{{item.name}}</li>
+        <p>รายละเอียด:{{item.decscription}}</p>
+         <button (click)="remove(i)" class="btn btn-danger">ลบข้อมูล</button></li>
+    </ul>-->
+    <div class="block-input">
+        <!-- Email input -->
+        <div>
+            <label>ชื่อ</label>
+            <input type="text" id="name" name="name" #name />
+            <br>
+            <label>รายละเอียด</label>
+            <br>
+            <textarea type="text" id="decscription" name="decscription" #decscription></textarea>
+            <br>
+            <button (click)="addClick(name.value,decscription.value)">ตกลง</button>
         </div>
+        <!-- Submit button -->
     </div>
 </div>

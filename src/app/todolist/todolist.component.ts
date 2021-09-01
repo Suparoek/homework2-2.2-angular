@@ -1,24 +1,33 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input,OnInit,EventEmitter, Output} from '@angular/core';
+import { Task } from '../models/task';
 
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
 })
-export class TodolistComponent {
+export class TodolistComponent implements OnInit {
   @Input()
-  title:string='';
-  list = new Array();
-  constructor() { }
-  addClick(title:string){
-    this.list.push(this.title);
-
-    this.title ='';
+  tasks!:Task[];
+  name!:string;
+  decscription!:string;
+  constructor() {
+      this.tasks=[];
   }
- /* remove(i:number){
-     if(i !== -1) {
-       this.list.splice(i,1);
-       alert("ลบข้อมูลของท่านเรียบร้อย");
-     }
-  }*/
+  ngOnInit(): void {
+  }
+ 
+  addClick(name:string,decscription:string){
+      this.tasks.push({
+        id:this.tasks.length +1,
+        name:this.name,
+        decscription:this.decscription
+      });
+      this.name="";
+      this.decscription="";
+  }
+  removelist(task:Task){
+    this.tasks.splice(task.id -1,1);
+    alert("ลบข้อมูลเรียบร้อย");
+  }
 }
