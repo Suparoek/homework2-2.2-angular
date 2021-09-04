@@ -1,14 +1,15 @@
 <div class="bar-out">
     <div class="bar-task">
         <h2 style="text-align: center;">My Tasks today</h2>
-        <app-task *ngFor=" let list of tasks" [task]="list" (OnDelete)="removelist($event)"></app-task>
+        <app-task *ngFor=" let list of tasks; index as i" (click)="selected(i)"></app-task>
     </div>
+    <button (click)="close()" class="btn btn-danger " style="float: right;"><i class="bi bi-x"></i></button>
     <!--   <ul *ngFor="let p of tasks; index as i">
         <li>ชื่อ :{{item.name}}</li>
         <p>รายละเอียด:{{item.decscription}}</p>
          <button (click)="remove(i)" class="btn btn-danger">ลบข้อมูล</button></li>
     </ul>-->
-    <div class="block-input">
+    <div class="block-input" [class.selected]="isSelected">
         <!-- Email input -->
         <div>
             <label>ชื่อ</label>
@@ -18,8 +19,13 @@
             <br>
             <textarea type="text" id="decscription" name="decscription" #decscription></textarea>
             <br>
-            <button (click)="addClick(name.value,decscription.value)">ตกลง</button>
+            <button (click)="add()">ตกลง</button>
         </div>
         <!-- Submit button -->
     </div>
+    <div [class.isShow]="isSelected">
+        <p>Task:{{tasks[i].id}} {{tasks[i].name}}</p>
+        <p>{{tasks[i].decscription}}</p>
+    </div>
+
 </div>

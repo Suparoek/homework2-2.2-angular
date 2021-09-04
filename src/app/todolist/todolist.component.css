@@ -1,15 +1,10 @@
 .block-input {
     width: 300px;
+    margin-top: 30px;
     display: inline-block;
     border: 1px solid gray;
     text-align: center;
     align-items: center;
-}
-
-.block-input a {
-    text-decoration: none;
-    border: 1px solid black;
-    color: black;
 }
 
 .bar-out {
@@ -28,4 +23,11 @@
     text-align: center;
     align-items: center;
     margin-bottom: 15px;
+}
+
+.isShow {
+    display: block;
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #f1f1f1;
 }

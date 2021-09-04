@@ -14,7 +14,8 @@ import { TaskComponent } from './task/task.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

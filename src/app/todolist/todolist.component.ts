@@ -7,27 +7,61 @@ import { Task } from '../models/task';
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent implements OnInit {
-  @Input()
   tasks!:Task[];
+  id!:number;
   name!:string;
-  decscription!:string;
+  des!:String;
+  decscription!:string
+  isShow= false;
+  isclose!:boolean;
+  isSelected!:boolean;
+  i!:number;
   constructor() {
       this.tasks=[];
-  }
-  ngOnInit(): void {
-  }
- 
-  addClick(name:string,decscription:string){
       this.tasks.push({
-        id:this.tasks.length +1,
-        name:this.name,
-        decscription:this.decscription
-      });
-      this.name="";
-      this.decscription="";
+        id: 1,
+        name: 'Mr.A',
+        decscription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum aspernatu',
+      },
+      {
+        id: 2,
+        name: 'Mr.B',
+        decscription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum aspernatu',
+      },
+      {
+        id: 3,
+        name: 'Mr.c',
+        decscription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum aspernatu',
+      })
+
   }
-  removelist(task:Task){
-    this.tasks.splice(task.id -1,1);
-    alert("ลบข้อมูลเรียบร้อย");
+  ngOnInit(): void {}
+  selected(i:number){
+    if(i== this.i){
+      this.isShow = false;
+    }
+    if(this.isShow ==true){
+      this.isShow = false
+    }else{
+      this.isShow = true
+    }
+    this.i = i;
+    return(this.tasks[i]);
+  }
+  close(){
+    this.isShow=false;
+  }
+  add(){
+    this.tasks.push(
+    {
+      id:this.tasks.length +1,
+      name:this.name,
+      decscription: this.decscription
+    })
+  }
+  removeThisTask(task:Task){
+    console.log(task);
+    let index = this.tasks.indexOf(task);
+    this.tasks.splice(index,1);
   }
 }
